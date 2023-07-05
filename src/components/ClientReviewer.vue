@@ -86,6 +86,12 @@
                       lazy-src="https://picsum.photos/id/11/10/6"
                       :width="imgWidth + 'vw'"
                     ></v-img>
+                    <v-img
+                      aspect-ratio="1"
+                      class="productPreview"
+                      :src="image"
+                      lazy-src="https://picsum.photos/id/11/10/6"
+                    ></v-img>
                   </div>
                 </div>
 
@@ -182,11 +188,18 @@ export default {
     isDrawing: false,
     lastX: 0,
     lastY: 0,
+
+    /* TEST */
+    image: null
   }),
 
   mounted() {
     this.canvas = this.$refs.canvas;
     this.context = this.canvas.getContext("2d");
+
+    // this.image = new URL("@/assets/logo.png", import.meta.url);
+    // this.image = URL.createObjectURL(this.image.url)
+    // console.log(this.image);
   },
 
   methods: {
