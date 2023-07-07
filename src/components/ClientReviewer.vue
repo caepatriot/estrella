@@ -1,123 +1,96 @@
 <template>
-  <v-app>
-    <v-card>
-      <v-container fluid>
-        <v-row class="justify-center">
-          <!-- <v-btn-toggle v-model="alignment" variant="outlined" divided>
-            <v-btn>
-              <v-icon icon="mdi-format-align-center"></v-icon>
-            </v-btn>
+  <v-card elevation="5">
+    <v-container fluid>
+      <v-row>
+        <v-col>
+          <v-card-title>
+            <v-btn-toggle v-model="alignment" variant="outlined" divided>
+              <v-btn>
+                <v-icon icon="mdi-format-align-center"></v-icon>
+              </v-btn>
 
-            <v-btn>
-              <v-icon icon="mdi-format-align-left"></v-icon>
-            </v-btn>
+              <v-btn>
+                <v-icon icon="mdi-format-align-left"></v-icon>
+              </v-btn>
 
-            <v-btn>
-              <v-icon icon="mdi-format-align-right"></v-icon>
-            </v-btn>
-          </v-btn-toggle>
+              <v-btn>
+                <v-icon icon="mdi-format-align-right"></v-icon>
+              </v-btn>
+            </v-btn-toggle>
 
-          <v-btn-toggle v-model="alignment" variant="outlined" divided>
-            <v-btn @click="imgWidth -= 2">
-              <v-icon icon="mdi-minus"></v-icon>
-            </v-btn>
+            <v-btn-toggle v-model="alignment" variant="outlined" divided>
+              <v-btn @click="imgWidth -= 2">
+                <v-icon icon="mdi-minus"></v-icon>
+              </v-btn>
 
-            <v-btn @click="imgWidth += 2">
-              <v-icon icon="mdi-plus"></v-icon>
-            </v-btn>
-          </v-btn-toggle> -->
-        </v-row>
-        <v-row>
-          <v-col>
-            <v-card-title>
-              <v-btn-toggle v-model="alignment" variant="outlined" divided>
-                <v-btn>
-                  <v-icon icon="mdi-format-align-center"></v-icon>
-                </v-btn>
-
-                <v-btn>
-                  <v-icon icon="mdi-format-align-left"></v-icon>
-                </v-btn>
-
-                <v-btn>
-                  <v-icon icon="mdi-format-align-right"></v-icon>
-                </v-btn>
-              </v-btn-toggle>
-
-              <v-btn-toggle v-model="alignment" variant="outlined" divided>
-                <v-btn @click="imgWidth -= 2">
-                  <v-icon icon="mdi-minus"></v-icon>
-                </v-btn>
-
-                <v-btn @click="imgWidth += 2">
-                  <v-icon icon="mdi-plus"></v-icon>
-                </v-btn>
-              </v-btn-toggle>
-            </v-card-title>
-            <v-card-text>
-              <div class="d-flex flex-column productMainContainer">
-                <div class="d-flex flex-column">
-                  <div class="pa-2">
-                    <!-- <v-slider
+              <v-btn @click="imgWidth += 2">
+                <v-icon icon="mdi-plus"></v-icon>
+              </v-btn>
+            </v-btn-toggle>
+          </v-card-title>
+          <v-card-text>
+            <div class="d-flex flex-column productMainContainer">
+              <div class="d-flex flex-column">
+                <div class="pa-2">
+                  <!-- <v-slider
                       track-size="2px"
                       v-model="imgWidth"
                       :min="10"
                       :max="50"
                       :step="2"
                     ></v-slider> -->
-                  </div>
-                  <div
-                    class="productPreviewContainer d-flex flex-row align-center"
-                  >
-                    <canvas
-                      id="drawCanvas"
-                      class=""
-                      ref="canvas"
-                      @mousedown="startDrawing"
-                      @mousemove="draw"
-                      @mouseup="stopDrawing"
-                      @mouseout="stopDrawing"
-                    >
-                    </canvas>
-                    <v-img
-                      aspect-ratio="1"
-                      class="productPreview"
-                      :src="imgurl"
-                      lazy-src="https://picsum.photos/id/11/10/6"
-                      :width="imgWidth + 'vw'"
-                    ></v-img>
-                    <v-img
-                      aspect-ratio="1"
-                      class="productPreview"
-                      :src="image"
-                      lazy-src="https://picsum.photos/id/11/10/6"
-                    ></v-img>
-                  </div>
                 </div>
-
-                <v-file-input
-                  v-model="image"
-                  accept="image/png, image/jpeg, image/bmp"
-                  placeholder="Pick an image"
-                  prepend-icon="mdi-camera"
-                  @change="changeFile"
-                  @click:clear="clearImagePreview()"
-                  label="Image"
-                ></v-file-input>
+                <div
+                  class="productPreviewContainer d-flex flex-row align-center"
+                >
+                  <canvas
+                    id="drawCanvas"
+                    class=""
+                    ref="canvas"
+                    @mousedown="startDrawing"
+                    @mousemove="draw"
+                    @mouseup="stopDrawing"
+                    @mouseout="stopDrawing"
+                  >
+                  </canvas>
+                  <v-img
+                    aspect-ratio="1"
+                    class="productPreview"
+                    :src="imgurl"
+                    lazy-src="https://picsum.photos/id/11/10/6"
+                    :width="imgWidth + 'vw'"
+                  ></v-img>
+                  <v-img
+                    aspect-ratio="1"
+                    class="productPreview"
+                    :src="image"
+                    lazy-src="https://picsum.photos/id/11/10/6"
+                  ></v-img>
+                </div>
               </div>
-            </v-card-text>
-          </v-col>
-          <v-divider vertical></v-divider>
 
-          <v-col>
-            <v-layout>
-              <v-list class="mx-5" :items="items"></v-list>
-            </v-layout>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-card>
-  </v-app>
+              <v-file-input
+                v-model="image"
+                accept="image/png, image/jpeg, image/bmp"
+                placeholder="Pick an image"
+                prepend-icon="mdi-camera"
+                @change="changeFile"
+                @click:clear="clearImagePreview()"
+                label="Image"
+              ></v-file-input>
+            </div>
+          </v-card-text>
+        </v-col>
+        <v-divider vertical></v-divider>
+
+        <v-col>
+          <v-layout>
+            <v-list class="mx-5" :items="items"></v-list>
+          </v-layout>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-card>
 </template>
 
 <style scoped>
@@ -151,6 +124,8 @@ export default {
   name: "ClientReviewer",
 
   data: () => ({
+    alignment: true,
+
     /* PROJECT LIST */
     items: [
       { type: "subheader", title: "Project #1" },
@@ -190,7 +165,7 @@ export default {
     lastY: 0,
 
     /* TEST */
-    image: null
+    image: null,
   }),
 
   mounted() {

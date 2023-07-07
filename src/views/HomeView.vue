@@ -1,22 +1,20 @@
 <template>
-  <v-app-bar color="primary" density="compact">
-    <template v-slot:prepend>
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
-    </template>
-
-    <v-app-bar-title>Photos</v-app-bar-title>
-
-    <template v-slot:append>
-      <v-btn icon="mdi-dots-vertical"></v-btn>
-    </template>
-  </v-app-bar>
-  <v-main>
-    <div class="home">
-      <img alt="Vue logo" src="../assets/logo.png" />
-      <HelloWorld msg="Welcome to Your Vue.js App" />
-    </div>
-  </v-main>
+  <HelloWorld />
+  <div class="section"></div>
+  <div class="section"></div>
+  <div class="section"></div>
+  <div class="section"></div>
 </template>
+
+<style lang="css" scoped>
+.section {
+  height: 100vh;
+  width: 100vw;
+}
+.section:nth-child(odd) {
+  background: red;
+}
+</style>
 
 <script>
 // @ is an alias to /src
