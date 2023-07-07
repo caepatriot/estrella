@@ -33,9 +33,13 @@
 </template>
 
 <style>
+@font-face {
+  font-family: "rabikiso";
+  src: url("~@/assets/fonts/Belanosima-Regular.ttf") format("truetype");
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  background: #2c3e50;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -44,6 +48,7 @@
 
 .main-toolbar {
   position: fixed;
+  z-index: 5;
   margin: 20px;
   width: auto;
 }
